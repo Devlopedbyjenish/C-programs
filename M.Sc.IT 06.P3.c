@@ -8,11 +8,12 @@ int main()
 {
 	int mc,choice,acct,chance=1;
 	float ta,em,am;
-	double acc,opin,npin,rnpin,pin,accno;
+	double acc,opin,npin,pin,rnpin;
+	ta=89000;
 	
 	
 			system("cls");
-			while(mc<=2)
+			while(mc != 3)
 			{
 			printf("\n \n Welcome BANK OF INDIA ");
 			printf("\n please select option given below:");
@@ -21,11 +22,12 @@ int main()
 			scanf("%d",&mc);
 		switch(mc)
 	{	    case 1:
-			
-			
+				while(choice!=6)
+			{
+			printf("\n \n Welcome BANK OF INDIA ");
 			printf("\n please select option given below:");
 			printf("\n 1. cash withdraw.");
-    		printf("\n 2. Balance inquiry.");
+			printf("\n 2. Balance inquiry.");
 			printf("\n 3. Pin change. ");
 			printf("\n 4. Set pin number .");
 			printf("\n 5. cardless withdrawal .");
@@ -34,6 +36,8 @@ int main()
 		switch(choice)
 		{
 	 	   		case 1:
+	 	   		while(chance<4)
+	 	   		{
 					printf("\n Enter your pin :");
 					scanf("%lf",&opin);
 					if(opin==2538)
@@ -45,10 +49,16 @@ int main()
 							{
 					printf("\n Enter amount of withdraw:");
 					scanf("%f",&em);
+					if(ta>em)
+					{
 					printf("\n Please collect your cash" );
-					ta=79000;
 					am=ta-em;
 					printf("\n Your balance is=%.2f",am);
+					}
+					else
+					{
+						printf("\n Your withdraw amount is greater than your balance");
+					}
 					printf("\n Take your card");
 					break;
 				}	     else
@@ -67,6 +77,8 @@ int main()
 					
 					
 					case 2:
+					while(chance<4)
+					{
 					printf("\n Enter your pin :");
 					scanf("%lf",&opin);
 					if(opin==2538)
@@ -79,11 +91,17 @@ int main()
 					else
 				{
 					printf("\n Invalid pin ");
+					chance++;
+					break;
 				}
+					}
+
+				if(chance>3)
+	 	   		printf("\n YOUR ACCOUNT IS BLOKED FOR 24 HOURS");
 					break;
 						
 				case 3:
-					printf("\n Enter previous pin :");
+					printf("\n Enter current pin :");
 					scanf("%lf",&opin);
 					if(opin==2538)
 				{
@@ -114,25 +132,48 @@ int main()
 				case 4:
 					printf("\n Please Enter to set pin number :");
 					scanf("%lf",&pin);
+					printf("\n Please re-Enter to set pin number :");
+					scanf("%lf",&rnpin);
+					if(pin == rnpin)
+					{
 					printf("\n Your pin is set ");
 					printf("\n Take your card");
 					break;
+					}
+					else
+						printf("\n Re-Enter pin is incorrect please try again");
+						break;
 				case 5:
+				while(chance<4)
+				{
+					
 					printf("\n Please Enter Your Account Number:");
 				    scanf("%lf",&acc);	
 				    if(acc==2514010007)
 				   {
 				    printf("\n Enter amount of withdraw :");
 					scanf("%f",&em);
+					if(ta>em)
+					{
 					printf("\n Please collect your cash" );
 					am=ta-em;
 					printf("\n Your balance is=%.2f",am);
+					}
+					else
+					{
+						printf("\nYour withdraw amount is greater than your balance");
+					}
 					break;
 				   }
 				   else
 				   {
 				  	printf("\n account number is invalid");
+				   	chance++;
+				   	break;
 				   }
+				}
+				   if(chance>3)
+	 	   		printf("\n YOUR ACCOUNT IS BLOKED FOR 24 HOURS");
 				   	break;
 				   case 6:
 				         exit(0);
@@ -140,13 +181,14 @@ int main()
 				default:
 					printf("\n Choice invalid");
 					break;
-		 }
-	
-	
-	        case 2:
-	        
-	        
-			ta=78000;
+			}
+				    				
+			}
+			case 2:
+				while(choice!=3)
+			{
+			printf("\n \n Welcome to Bank of India");
+			printf("\n Please select option given below:");
 			printf("\n 1. Cash Deposit ");
 			printf("\n 2. Cardless Deposit ");
 			puts("\n 3. Exit ");
@@ -171,8 +213,8 @@ int main()
 				    break;
 				case 2:
 					printf("\n Please Enter Your Account number:  ");
-					scanf("%lf",&accno);
-				if(accno==2514010007)
+					scanf("%lf",&acc);
+				if(acc==2514010007)
 				  {  
 				      printf("\n Enter amount of deposit: ");
 				      scanf("%f",&em);
@@ -192,18 +234,13 @@ int main()
 						printf("\n Invalid choice");
 						break;
 	}
-					default:
-					printf("\n Invalid Machine Choice");
-					break;
-				}
-				printf("\n Thank You");	
-				printf("\n Visit Again");
+			}
+			default :
+				printf("\n INVALID MACHINE CHOICE");
+				break;
+		}
+		printf("\n Thank You");
+		printf("\n Visit Again");
 	return 0;
-	
+	}
 }
-
-	
-	
-	
-			
- 
