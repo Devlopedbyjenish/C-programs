@@ -2,16 +2,24 @@
 // DEVLOPER NAME: JEMISH TARSARIYA
 #include<stdio.h>
 #include<stdlib.h>
-#include<math.h>
+#include<time.h>
 int main()
 {
     int D1,D2,MD,M1,M2,MM,Y1,Y2,MY,RD,RM;
+    
+    time_t t;
+    struct tm *today;
+    time(&t);
+    today=localtime(&t);
+    D2=today->tm_mday;
+    M2=today->tm_mon+1;
+    Y2=today->tm_year+1900;
+
       system("cls");
       
       printf("\n ENTER THE BIRTH DATE IN (DD-MM-YYYY): ");
       scanf("%d-%d-%d",&D1,&M1,&Y1);
-      printf("\n ENTER THE CURRENT DATE IN (DD-MM-YYYY): ");
-      scanf("%d-%d-%d",&D2,&M2,&Y2);
+      printf("\n AS JUST INFORM YOU THAT THE CURRENT DATE IS: %d-%d-%d",D2,M2,Y2);
 
       if(D2<D1)
       {
